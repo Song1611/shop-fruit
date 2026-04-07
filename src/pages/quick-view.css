@@ -1,0 +1,103 @@
+/* quick-view.css */
+
+.qv-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.qv-modal {
+  background-color: #fff;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+.qv-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.qv-close:hover {
+  background-color: var(--primary-green, #ffb800);
+}
+
+.qv-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 767px) {
+  .qv-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reusing some product detail classes, specific overrides for Quick View */
+.qv-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.qv-main-image {
+  background-color: #fff;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qv-main-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.qv-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.qv-thumb {
+  aspect-ratio: 1;
+  border: 1px solid #eee;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qv-thumb.active {
+  border-color: var(--primary-green, #ffb800);
+}
+
+.qv-thumb img {
+  max-width: 100%;
+  height: auto;
+}
